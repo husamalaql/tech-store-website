@@ -116,3 +116,5 @@ nav a:hover{color:var(--primary)}
 .service-card-sabafon .item-image{object-fit:contain;padding:22px;background:#fff}
 .service-price-note{font-size:.84rem;color:var(--muted);font-weight:700}
 @media(max-width:700px){.like-btn{width:39px;height:39px;border-radius:13px}.like-icon{width:20px;height:20px}}
+
+.image-credit{display:block;color:var(--muted);font-size:.7rem;line-height:1.5;margin-top:-3px}.image-credit a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
