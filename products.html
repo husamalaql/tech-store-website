@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f8fc"><meta name="description" content="تصفح جميع المنتجات التقنية وابحث حسب الاسم والتصنيف والسعر.">
+<title>جميع المنتجات | المتجر التقني</title><link rel="stylesheet" href="assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/config.js"></script><script defer src="assets/js/catalog.js"></script>
+</head><body>
+<header class="site-header"><div class="container header-row">
+<a class="brand" href="index.html"><img id="store-logo" alt="شعار المتجر" hidden><span class="brand-mark"><svg viewBox="0 0 48 48"><path d="M10 8h20l8 8v24H10zM30 8v9h8M17 25h14M17 31h9"/></svg></span><span id="store-name">المتجر التقني</span></a>
+<button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav id="main-nav"><a href="index.html#home">الرئيسية</a><a href="products.html" aria-current="page">المنتجات</a><a href="index.html#offers">العروض</a><a href="index.html#news">الأخبار</a><a href="index.html#services">الخدمات</a><a href="index.html#about">من نحن</a><a href="index.html#contact">تواصل معنا</a></nav>
+<a class="header-cta" href="index.html#products">الرئيسية ←</a></div></header>
+<main><section class="section"><div class="container">
+<a class="catalog-back" href="index.html">← العودة إلى المتجر</a>
+<div class="section-head" style="margin-top:16px"><div><span class="eyebrow">كتالوج المتجر</span><h2>جميع المنتجات</h2><p>ابحث عن المنتج المناسب، وصفِّ النتائج ورتّبها حسب السعر أو الأحدث.</p></div></div>
+<div class="catalog-toolbar">
+<label class="search-box"><span>⌕</span><input id="catalog-search" type="search" placeholder="ابحث باسم المنتج أو الموديل..." autocomplete="off"></label>
+<select id="catalog-category" aria-label="تصفية حسب التصنيف"><option value="">كل التصنيفات</option></select>
+<select id="catalog-sort" aria-label="ترتيب المنتجات"><option value="newest">الأحدث أولاً</option><option value="price-asc">السعر: من الأقل للأعلى</option><option value="price-desc">السعر: من الأعلى للأقل</option><option value="name-asc">الاسم: أ إلى ي</option></select>
+</div>
+<div class="catalog-status"><span id="catalog-count">جارٍ تحميل المنتجات...</span><span>12 منتجاً في كل صفحة</span></div>
+<div class="cards-grid" id="catalog-grid"><div class="loading">جارٍ تحميل المنتجات...</div></div>
+<nav class="catalog-pagination" id="catalog-pagination" aria-label="صفحات المنتجات"></nav>
+</div></section></main>
+<footer class="site-footer"><div class="container footer-main">
+<div class="footer-about"><a class="brand footer-brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48"><path d="M10 8h20l8 8v24H10zM30 8v9h8M17 25h14M17 31h9"/></svg></span><span id="footer-store-name">المتجر التقني</span></a><p>تصفح المنتجات التقنية واختر ما يناسبك.</p></div>
+<div class="footer-column"><h3>روابط سريعة</h3><a href="index.html">الرئيسية</a><a href="products.html">جميع المنتجات</a><a href="index.html#offers">العروض</a></div>
+<div class="footer-column footer-contact"><h3>تواصل معنا</h3><a id="catalog-whatsapp" href="#" target="_blank" rel="noopener">تواصل عبر واتساب</a></div>
+</div><div class="footer-bottom"><div class="container footer-bottom-row"><span>جميع الحقوق محفوظة © <span id="year"></span> <b id="footer-copy-name">المتجر التقني</b></span><a href="#">العودة إلى الأعلى ↑</a></div></div></footer>
+<dialog id="item-dialog" class="item-dialog"><button class="dialog-close" id="dialog-close" aria-label="إغلاق">×</button><div id="dialog-content"></div></dialog><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
