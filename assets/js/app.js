@@ -173,6 +173,7 @@ if (!window.supabase || !SUPABASE_CONFIG.URL || !SUPABASE_CONFIG.ANON_KEY) {
         loadProducts();
         loadOffers();
         loadNews();
+        loadServices();
     }
 
 
@@ -502,6 +503,85 @@ async function loadNews() {
 }
 
 
+   
+/* =====================================
+   تحميل الخدمات
+===================================== */
+
+async function loadServices() {
+
+    const container = document.getElementById("services-container");
+
+    try {
+
+        const { data, error } = await db
+            .from("services")
+            .select(`
+                id,
+                name,
+                slug,
+                description,
+                price,
+                image_url
+            `)
+            .eq("is_published", true)
+            .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        if (!data || data.length === 0) {
+            container.textContent = "لا توجد خدمات متاحة حالياً.";
+            return;
+        }
+
+        container.innerHTML = data.map(service => `
+
+            <article class="product-card">
+
+                ${
+                    service.image_url
+                    ? `<img
+                        class="product-image"
+                        src="${escapeHTML(service.image_url)}"
+                        alt="${escapeHTML(service.name)}"
+                    >`
+                    : ""
+                }
+
+                <div class="product-info">
+
+                    <h3 class="product-name">
+                        ${escapeHTML(service.name)}
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(service.description || "")}
+                    </p>
+
+                    ${
+                        service.price !== null
+                        ? `<p class="product-price">
+                            ${formatPrice(service.price)}
+                           </p>`
+                        : ""
+                    }
+
+                </div>
+
+            </article>
+
+        `).join("");
+
+    } catch (error) {
+
+        console.error("Services error:", error);
+
+        container.textContent = "تعذر تحميل الخدمات.";
+
+    }
+}
+
+   
     /* =====================================
        بدء تشغيل المتجر
     ===================================== */
