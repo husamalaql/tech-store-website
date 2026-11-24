@@ -171,6 +171,7 @@ if (!window.supabase || !SUPABASE_CONFIG.URL || !SUPABASE_CONFIG.ANON_KEY) {
         `;
 
         loadProducts();
+        loadOffers();
     }
 
 
@@ -333,6 +334,93 @@ if (!window.supabase || !SUPABASE_CONFIG.URL || !SUPABASE_CONFIG.ANON_KEY) {
         escapeHTML(storeSettings?.currency || "YER");
 
     }
+
+/* =====================================
+   تحميل العروض
+===================================== */
+
+async function loadOffers() {
+
+    const container = document.getElementById("offers-container");
+
+    try {
+
+        const now = new Date().toISOString();
+
+        const { data, error } = await db
+            .from("offers")
+            .select(`
+                id,
+                title,
+                description,
+                discount_price,
+                image_url,
+                start_at,
+                end_at,
+                products (
+                    name,
+                    price
+                )
+            `)
+            .eq("is_active", true)
+            .lte("start_at", now)
+            .gte("end_at", now)
+            .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        if (!data || data.length === 0) {
+            container.textContent = "لا توجد عروض نشطة حالياً.";
+            return;
+        }
+
+        container.innerHTML = data.map(offer => `
+
+            <article class="product-card">
+
+                ${
+                    offer.image_url
+                    ? `<img class="product-image"
+                           src="${escapeHTML(offer.image_url)}"
+                           alt="${escapeHTML(offer.title)}">`
+                    : ""
+                }
+
+                <div class="product-info">
+
+                    <h3 class="product-name">
+                        ${escapeHTML(offer.title)}
+                    </h3>
+
+                    <p>${escapeHTML(offer.description || "")}</p>
+
+                    ${
+                        offer.products
+                        ? `<p>المنتج: ${escapeHTML(offer.products.name)}</p>`
+                        : ""
+                    }
+
+                    <p class="product-price">
+                        ${
+                            offer.discount_price !== null
+                            ? formatPrice(offer.discount_price)
+                            : "عرض خاص"
+                        }
+                    </p>
+
+                </div>
+
+            </article>
+
+        `).join("");
+
+    } catch (error) {
+
+        console.error("Offers error:", error);
+        container.textContent = "تعذر تحميل العروض.";
+
+    }
+}
 
 
     /* =====================================
