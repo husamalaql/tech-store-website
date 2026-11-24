@@ -172,6 +172,7 @@ if (!window.supabase || !SUPABASE_CONFIG.URL || !SUPABASE_CONFIG.ANON_KEY) {
 
         loadProducts();
         loadOffers();
+        loadNews();
     }
 
 
@@ -418,6 +419,84 @@ async function loadOffers() {
 
         console.error("Offers error:", error);
         container.textContent = "تعذر تحميل العروض.";
+
+    }
+}
+
+   
+/* =====================================
+   تحميل الأخبار التقنية
+===================================== */
+
+async function loadNews() {
+
+    const container = document.getElementById("news-container");
+
+    try {
+
+        const { data, error } = await db
+            .from("news")
+            .select(`
+                id,
+                title,
+                slug,
+                summary,
+                image_url,
+                published_at
+            `)
+            .eq("is_published", true)
+            .order("published_at", { ascending: false });
+
+        if (error) throw error;
+
+        if (!data || data.length === 0) {
+            container.textContent = "لا توجد أخبار منشورة حالياً.";
+            return;
+        }
+
+        container.innerHTML = data.map(article => `
+
+            <article class="product-card">
+
+                ${
+                    article.image_url
+                    ? `<img
+                        class="product-image"
+                        src="${escapeHTML(article.image_url)}"
+                        alt="${escapeHTML(article.title)}"
+                    >`
+                    : ""
+                }
+
+                <div class="product-info">
+
+                    <h3 class="product-name">
+                        ${escapeHTML(article.title)}
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(article.summary || "")}
+                    </p>
+
+                    <small>
+                        ${
+                            article.published_at
+                            ? new Date(article.published_at).toLocaleDateString("ar-YE")
+                            : ""
+                        }
+                    </small>
+
+                </div>
+
+            </article>
+
+        `).join("");
+
+    } catch (error) {
+
+        console.error("News error:", error);
+
+        container.textContent = "تعذر تحميل الأخبار.";
 
     }
 }
