@@ -90,3 +90,15 @@ from (values
 ) as v(title,slug,summary,content,image_url,published_at)
 join public.categories c on c.slug='tech-news'
 where not exists(select 1 from public.news n where n.slug=v.slug);
+
+
+-- أخبار يمنية أحدث عن خدمات الاتصالات والإنترنت
+insert into public.news (category_id,title,slug,summary,content,image_url,is_published,published_at)
+select c.id,v.title,v.slug,v.summary,v.content,v.image_url,true,v.published_at
+from (values
+('مؤسسة الاتصالات تعلن عروضاً على الفايبر والهاتف الثابت ويمن 4G','yemen-telecom-fiber-4g-offers-2026','عروض أُعلن عنها في سبتمبر 2026 شملت إعفاءات على رسوم إدخال بعض الخدمات وباقات بيانات مجانية وفق الشروط المعلنة.','في 21 سبتمبر 2026 نُشر إعلان عن عروض للمؤسسة العامة للاتصالات اليمنية شملت إعفاء رسوم إدخال خدمة الألياف الضوئية والهاتف الثابت والإنترنت، إضافة إلى مزايا بيانات مجانية عند الاشتراك في بعض باقات يمن فور جي. تختلف تفاصيل الاستفادة بحسب نوع الخدمة والباقة، وينبغي مراجعة إعلان المؤسسة وشروط العرض قبل الاشتراك.\\n\\nالمصدر: https://sabapost.net/?p=8818','https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85','2026-09-21T12:00:00+03:00'::timestamptz),
+('خطط لتوسيع تغطية الإنترنت الفضائي ستارلينك في اليمن','starlink-coverage-expansion-yemen-2026','تقرير عن خطط لتوسيع تغطية ستارلينك إلى محافظات يمنية إضافية.','أشار تقرير مركز صنعاء للدراسات الاستراتيجية عن الربع الثالث من 2026 إلى إعلان في 19 سبتمبر عن خطة لتوسيع خدمة الإنترنت الفضائي ستارلينك إلى مناطق جديدة تشمل تعز ومأرب والحديدة والمخا، إلى جانب زيادة التغطية والسعة في المناطق التي تعمل فيها الخدمة. هذه خطط معلنة وليست تأكيداً على توافر الخدمة حالياً في كل منطقة.\\n\\nالمصدر: https://sanaacenter.org/the-yemen-review/jul-sept-2026/28578','https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=85','2026-09-19T12:00:00+03:00'::timestamptz),
+('انقطاع الإنترنت في تعز يعيد الاهتمام ببدائل الاتصال','taiz-internet-outage-starlink-mobile-2026','تقرير عن انقطاع خدمات الإنترنت الثابت والمحمول في تعز خلال أكتوبر 2026 ولجوء بعض المستخدمين إلى بدائل أخرى.','ذكر تقرير صحفي بتاريخ 9 أكتوبر 2026 انقطاع خدمات الإنترنت الثابت والمحمول في مدينة تعز لساعات، مع إفادات عن لجوء بعض المستخدمين إلى الإنترنت الفضائي وبعض شبكات الهاتف. يسلط الخبر الضوء على أهمية وجود بدائل اتصال موثوقة وخطط طوارئ عند تعطل الشبكات.\\n\\nالمصدر: https://www.yemenmonitor.com/en/Details/ArtMID/908/ArticleID/184278','https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85','2026-10-09T12:00:00+03:00'::timestamptz)
+) as v(title,slug,summary,content,image_url,published_at)
+join public.categories c on c.slug='tech-news'
+where not exists(select 1 from public.news n where n.slug=v.slug);
