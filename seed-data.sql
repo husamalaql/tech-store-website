@@ -76,7 +76,8 @@ null,'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=
 from public.categories c where c.slug='telecom-services'
 and not exists(select 1 from public.services s where s.slug='instant-mobile-recharge-yemen');
 
-update public.services set image_url='https://upload.wikimedia.org/wikipedia/commons/b/bf/Sabafon2001.png'
+update public.services set image_url='https://upload.wikimedia.org/wikipedia/commons/b/bf/Sabafon2001.png',
+ description='سنة استقبال سبأفون — لا تدع رقمك ينقطع عنك! جدّد خدمة استقبال المكالمات لرقم سبأفون لمدة عام كامل، وابقَ على تواصل مع أهلك وعملائك دون انقطاع. احصل على سنة استقبال كاملة مقابل 500 ريال فقط.'
 where slug='sabafon-one-year-incoming-validity';
 
 -- أخبار تقنية مرتبطة بقطاع الاتصالات والتقنية في اليمن
