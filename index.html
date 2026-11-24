@@ -4,29 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="متجر متخصص في الهواتف الذكية والأجهزة والإكسسوارات التقنية.">
 
     <title>متجري التقني</title>
-    <meta name="description" content="متجر متخصص في الهواتف والأجهزة التقنية">
 
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- ملفات التنسيق -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
+
 <body>
 
     <div id="app">
+
+        <!-- رأس الموقع -->
         <header id="site-header"></header>
 
+        <!-- المحتوى الرئيسي -->
         <main id="main-content">
+
+            <!-- حالة تحميل الموقع -->
             <section class="loading">
                 جاري تحميل المتجر...
             </section>
+
         </main>
 
+        <!-- تذييل الموقع -->
         <footer id="site-footer"></footer>
+
     </div>
 
+    <!-- مكتبة Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- إعدادات الاتصال -->
     <script src="assets/js/config.js"></script>
+
+    <!-- وظائف الموقع -->
     <script src="assets/js/app.js"></script>
 
 </body>
