@@ -118,3 +118,18 @@ nav a:hover{color:var(--primary)}
 @media(max-width:700px){.like-btn{width:39px;height:39px;border-radius:13px}.like-icon{width:20px;height:20px}}
 
 .image-credit{display:block;color:var(--muted);font-size:.7rem;line-height:1.5;margin-top:-3px}.image-credit a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+
+/* بطاقات موحدة الارتفاع وأزرار ثابتة الموضع */
+.cards-grid{align-items:stretch}
+.item-card{height:100%;min-height:100%}
+.item-body{height:100%;min-height:255px;gap:10px}
+.item-body h3{min-height:2.8em;line-height:1.4;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.item-body .card-summary{min-height:4.5em;max-height:4.5em;line-height:1.5;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.card-detail-btn,.item-body>.btn{width:100%;margin-top:auto;min-height:44px}
+.item-body>.price,.item-body>.service-price-note,.price-line{min-height:1.7em;display:flex;align-items:center}
+.card-actions{margin-top:auto}
+.image-credit{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:.78rem}
+.service-location-note{margin-top:18px;padding:14px;border:1px solid var(--line);border-right:4px solid var(--primary);border-radius:12px;background:var(--soft)}
+.service-location-note p{margin:6px 0 0}
+.service-card-recharge .item-image{object-fit:contain;background:#fff}
+@media(max-width:700px){.item-body{min-height:245px;padding:12px}.item-body h3{font-size:.95rem}.item-body .card-summary{min-height:4.3em;max-height:4.3em}}
