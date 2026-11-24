@@ -1,53 +1,31 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="متجر متخصص في الهواتف الذكية والأجهزة والإكسسوارات التقنية.">
-
-    <title>متجري التقني</title>
-
-    <!-- أيقونة الموقع -->
-    <link rel="icon" href="assets/images/favicon.ico">
-
-    <!-- ملفات التنسيق -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0f766e"><meta name="description" content="متجر تقني للمنتجات والخدمات والعروض">
+  <title>المتجر التقني</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script><script defer src="assets/js/store.js"></script>
 </head>
-
 <body>
-
-    <div id="app">
-
-        <!-- رأس الموقع -->
-        <header id="site-header"></header>
-
-        <!-- المحتوى الرئيسي -->
-        <main id="main-content">
-
-            <!-- حالة تحميل الموقع -->
-            <section class="loading">
-                جاري تحميل المتجر...
-            </section>
-
-        </main>
-
-        <!-- تذييل الموقع -->
-        <footer id="site-footer"></footer>
-
-    </div>
-
-    <!-- مكتبة Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <!-- إعدادات الاتصال -->
-    <script src="assets/js/config.js"></script>
-
-    <!-- وظائف الموقع -->
-    <script src="assets/js/app.js"></script>
-
-</body>
-</html>
+<header class="site-header"><div class="container header-row">
+  <a class="brand" href="#home"><img id="store-logo" alt="شعار المتجر" hidden><span id="store-name">المتجر التقني</span></a>
+  <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">☰</button>
+  <nav id="main-nav"><a href="#home">الرئيسية</a><a href="#products">المنتجات</a><a href="#offers">العروض</a><a href="#news">الأخبار</a><a href="#services">الخدمات</a><a href="#about">من نحن</a><a href="#contact">اتصل بنا</a></nav>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="container hero-inner"><div><span class="eyebrow">وجهتك للتقنية</span><h1 id="hero-title">كل ما تحتاجه من التقنية في مكان واحد</h1><p id="hero-description">منتجات مختارة، عروض مميزة، وخدمات تقنية موثوقة.</p><a class="btn btn-primary" href="#products">تصفح المنتجات</a></div><div class="hero-art" aria-hidden="true"><span>TECH</span><i>✦</i></div></div></section>
+<section class="trust-strip"><div class="container trust-grid"><span>✓ منتجات متنوعة</span><span>✓ عروض محدثة</span><span>✓ تواصل مباشر</span><span>✓ خدمات تقنية</span></div></section>
+<section class="section" id="products"><div class="container"><div class="section-head"><div><span class="eyebrow">تسوق الآن</span><h2>أحدث المنتجات</h2></div><a href="#products" class="text-link">كل المنتجات</a></div><div class="toolbar"><input id="search-input" type="search" placeholder="ابحث عن منتج..."><select id="category-filter"><option value="">كل التصنيفات</option></select></div><div class="cards-grid" id="products-grid"><div class="loading">جارٍ تحميل المنتجات...</div></div></div></section>
+<section class="section section-soft" id="offers"><div class="container"><div class="section-head"><div><span class="eyebrow">لفترة محدودة</span><h2>العروض الحالية</h2></div></div><div class="cards-grid" id="offers-grid"><div class="loading">جارٍ تحميل العروض...</div></div></div></section>
+<section class="section" id="news"><div class="container"><div class="section-head"><div><span class="eyebrow">ابقَ على اطلاع</span><h2>آخر الأخبار التقنية</h2></div></div><div class="cards-grid" id="news-grid"><div class="loading">جارٍ تحميل الأخبار...</div></div></div></section>
+<section class="section section-soft" id="services"><div class="container"><div class="section-head"><div><span class="eyebrow">نقدم لك</span><h2>خدماتنا</h2></div></div><div class="cards-grid" id="services-grid"><div class="loading">جارٍ تحميل الخدمات...</div></div></div></section>
+<section class="section" id="about"><div class="container about-box"><div><span class="eyebrow">من نحن</span><h2 id="about-title">متجرك التقني</h2><p id="about-description">نوفر لك المنتجات والخدمات التقنية مع سهولة التواصل والطلب.</p></div><div class="about-mark">T<span>.</span></div></div></section>
+<section class="section section-soft" id="contact"><div class="container contact-layout"><div><span class="eyebrow">نحن هنا لمساعدتك</span><h2>تواصل معنا</h2><p>أرسل استفسارك وسنقوم بمراجعته والرد عليك في أقرب وقت.</p><div class="contact-details" id="contact-details"></div><div class="social-links" id="social-links"></div></div><form id="contact-form" class="contact-form"><label>الاسم<input name="name" required maxlength="120"></label><label>رقم الهاتف<input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" required></label><label>الرسالة<textarea name="message" required rows="5" maxlength="3000"></textarea></label><button class="btn btn-primary" type="submit">إرسال الرسالة</button><p class="form-status" id="contact-status" aria-live="polite"></p></form></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-row"><span id="footer-store-name">المتجر التقني</span><span>جميع الحقوق محفوظة © <span id="year"></span></span></div></footer>
+<a class="floating-whatsapp" id="floating-whatsapp" href="#contact" aria-label="تواصل عبر واتساب" hidden>واتساب</a>
+<dialog id="item-dialog" class="item-dialog"><button class="dialog-close" id="dialog-close" aria-label="إغلاق">×</button><div id="dialog-content"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
