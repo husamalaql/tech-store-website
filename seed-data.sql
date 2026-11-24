@@ -67,3 +67,25 @@ where c.slug='telecom-services'
   and not exists (select 1 from public.services s where s.slug='sabafon-one-year-incoming-validity');
 
 -- ضع رقم واتساب المتجر من لوحة الإدارة > إعدادات المتجر قبل استقبال الطلبات.
+
+-- خدمة الشحن الفوري لجميع شبكات الهاتف المحمول في اليمن
+insert into public.services (category_id,name,slug,description,price,image_url,is_published)
+select c.id,'الشحن الفوري لجميع شركات الاتصالات اليمنية','instant-mobile-recharge-yemen',
+'اشحن رصيدك فورياً لشبكات يمن موبايل وسبأفون وYOU وY. اختر الشركة ومبلغ الشحن وأرسل رقم الهاتف، وسيتم تأكيد تفاصيل العملية والتكلفة قبل التنفيذ. السعر غير ثابت ويعتمد على الشركة ومبلغ الشحن.',
+null,'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85',true
+from public.categories c where c.slug='telecom-services'
+and not exists(select 1 from public.services s where s.slug='instant-mobile-recharge-yemen');
+
+update public.services set image_url='https://upload.wikimedia.org/wikipedia/commons/b/bf/Sabafon2001.png'
+where slug='sabafon-one-year-incoming-validity';
+
+-- أخبار تقنية مرتبطة بقطاع الاتصالات والتقنية في اليمن
+insert into public.news (category_id,title,slug,summary,content,image_url,is_published,published_at)
+select c.id,v.title,v.slug,v.summary,v.content,v.image_url,true,v.published_at
+from (values
+('تعزيز جاهزية شبكات الاتصالات واستمرارية الإنترنت في اليمن','yemen-telecom-network-readiness-2026','تقرير عن توجيهات رفع جاهزية البنية التحتية والبدائل الفنية لضمان استمرار خدمات الاتصالات والإنترنت.','في 7 أغسطس 2026 نُشر تقرير عن توجيهات وزارة الاتصالات وتقنية المعلومات برفع الجاهزية الفنية وتعزيز البدائل الاحتياطية لشبكات الاتصالات، بما يساعد على استمرار خدمات الهاتف والإنترنت عند حدوث أعطال أو انقطاعات. وتبرز أهمية الكابلات الاحتياطية والشبكات البديلة ومراكز المتابعة في تحسين مرونة البنية التحتية الرقمية.\\n\\nالمصدر: https://www.sawt-eshab.net/NDetails.aspx?contid=70941','https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85','2026-08-07T12:00:00+03:00'::timestamptz),
+('سبأفون تدشن خدمات الجيل الرابع 4G في اليمن','sabafon-4g-launch-yemen','خطوة لتطوير خدمات الإنترنت عبر الهاتف وتحسين تجربة الاتصال للمشتركين.','أعلنت سبأفون تدشين خدمات الجيل الرابع 4G للجمهور في اليمن في عام 2022 ضمن توجه لتطوير خدمات الإنترنت عبر الهاتف وتوفير سرعات أعلى للأجهزة والشبكات المتوافقة. وتعتمد الاستفادة الفعلية على توفر التغطية في المنطقة ودعم الهاتف لترددات الشبكة.\\n\\nالمصدر: https://sabafon.com.ye/نبذة-عن-سبأفون/','https://images.unsplash.com/photo-1516321310764-8d8b6f4f4f6d?auto=format&fit=crop&w=1200&q=85','2022-12-01T12:00:00+03:00'::timestamptz),
+('سبأفون تتجه إلى حلول الفوترة والعمليات السحابية','sabafon-cloud-billing-yemen','تعاون تقني لدعم أنظمة الفوترة والعمليات باستخدام حلول سحابية.','أعلنت سبأفون في سبتمبر 2021 اختيار شركة STL لتقديم حلول وأنظمة دعم الفوترة والعمليات البرمجية بتقنيات سحابية، في مثال على توظيف الخدمات السحابية لتطوير الأنظمة التشغيلية لدى شركات الاتصالات.\\n\\nالمصدر: https://www.sabafon.com/articles/News/ar','https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85','2021-09-06T12:00:00+03:00'::timestamptz)
+) as v(title,slug,summary,content,image_url,published_at)
+join public.categories c on c.slug='tech-news'
+where not exists(select 1 from public.news n where n.slug=v.slug);
