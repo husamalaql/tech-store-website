@@ -276,3 +276,58 @@ html:has(body.admin-body),body.admin-body{width:100%;max-width:100%;overflow-x:h
  .admin-top{margin-bottom:4px!important}
  .admin-top h1{font-size:1.15rem!important}
 }
+
+
+/* One shared, standalone close icon for every store and admin dialog */
+.dialog-close,
+.admin-body .dialog-close{
+ display:grid!important;
+ place-items:center!important;
+ position:sticky;
+ top:0;
+ float:left;
+ z-index:10;
+ width:36px!important;
+ height:36px!important;
+ min-width:36px!important;
+ padding:5px!important;
+ margin:0 0 8px 0;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ color:#60758b!important;
+ box-shadow:none!important;
+ cursor:pointer;
+ transform:none!important;
+ transition:color .16s ease,opacity .16s ease;
+}
+.dialog-close svg,
+.admin-body .dialog-close svg{
+ display:block;
+ width:24px!important;
+ height:24px!important;
+ fill:none!important;
+ stroke:currentColor!important;
+ stroke-width:2.2!important;
+ stroke-linecap:round!important;
+ stroke-linejoin:round!important;
+}
+.dialog-close:hover,
+.admin-body .dialog-close:hover{
+ color:#d93649!important;
+ background:transparent!important;
+ border:0!important;
+ transform:none!important;
+ opacity:.82;
+}
+.dialog-close:focus-visible,
+.admin-body .dialog-close:focus-visible{
+ outline:2px solid #2f80ed!important;
+ outline-offset:2px;
+ border-radius:4px!important;
+}
+.admin-body .dialog-close-action{
+ position:static!important;
+ float:none!important;
+ margin-top:12px!important;
+}
