@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+const favLoader=document.createElement('script');favLoader.src='assets/js/favorites.js';document.head.appendChild(favLoader);
 const cfg=window.STORE_CONFIG||{},$=s=>document.querySelector(s),PAGE_SIZE=12;
 const state={db:null,settings:{},categories:[],offers:[],social:[],page:1,count:0,term:'',category:'',sort:'newest',products:[]};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
