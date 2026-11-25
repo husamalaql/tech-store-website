@@ -243,3 +243,36 @@ html:has(body.admin-body),body.admin-body{width:100%;max-width:100%;overflow-x:h
  .admin-editor-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
  .admin-editor-actions>*{width:100%!important;min-width:0;padding-inline:8px}
 }
+
+
+/* Refined admin header, compact section navigation and consistent dialog controls */
+.admin-sidebar-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 5px;min-width:0}
+.admin-sidebar-head h2{margin:0!important;padding:0 4px!important;white-space:nowrap}
+.admin-sidebar-head .logout-icon-btn{flex:0 0 38px;width:38px;height:38px;min-width:38px;align-self:center!important;color:#ff6675!important;border:1px solid #ff66754a!important;background:#ff526512!important;border-radius:11px!important}
+.admin-sidebar-head .logout-icon-btn svg{width:21px;height:21px;stroke:currentColor;stroke-width:2}
+.admin-sidebar-head .logout-icon-btn:hover{color:#fff!important;background:#d92f45!important;border-color:#f05b6b!important}
+.admin-sidebar{padding-bottom:10px!important;gap:7px!important}
+.admin-top{margin:0 0 7px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;min-height:0}
+.admin-top h1{margin:0!important;font-size:1.35rem!important}
+.admin-main{padding-top:16px!important}
+.admin-body .dialog-close{display:grid;place-items:center;position:sticky;top:0;float:left;z-index:8;width:40px;height:40px;min-width:40px;padding:0;border:1px solid #dbe5f0;border-radius:13px;background:#f5f8fc;color:#526b84;box-shadow:0 3px 10px #17385812;cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .18s}
+.dialog-close svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.admin-body .dialog-close:hover,.dialog-close:hover{background:#fff0f1;border-color:#ffcbd1;color:#d93649;transform:rotate(90deg)}
+.admin-body .dialog-close:focus-visible,.dialog-close:focus-visible{outline:3px solid #2f80ed55;outline-offset:2px}
+.admin-body .dialog-close-action{position:static;float:none;margin-top:12px}
+@media(max-width:900px){
+ .admin-sidebar{padding:8px 10px 5px!important;gap:5px!important}
+ .admin-sidebar-head{margin:0 0 2px!important}
+ .admin-nav{padding:0!important;margin:0!important;gap:4px!important}
+ .admin-main{padding-top:8px!important}
+ .admin-top{margin-bottom:5px!important}
+}
+@media(max-width:720px){
+ .admin-sidebar{padding:7px 10px 4px!important;gap:4px!important}
+ .admin-sidebar-head h2{font-size:.9rem!important}
+ .admin-sidebar-head .logout-icon-btn{width:34px;height:34px;min-width:34px;flex-basis:34px}
+ .admin-nav{padding:0!important;margin:0!important}
+ .admin-main{padding-top:7px!important}
+ .admin-top{margin-bottom:4px!important}
+ .admin-top h1{font-size:1.15rem!important}
+}
