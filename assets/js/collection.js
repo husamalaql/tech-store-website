@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+const favLoader=document.createElement('script');favLoader.src='assets/js/favorites.js';document.head.appendChild(favLoader);
 const cfg=window.STORE_CONFIG||{},$=s=>document.querySelector(s),PAGE=12,kind=document.body.dataset.collection;
 const config={offers:{table:'offers',title:'العروض',date:'created_at',search:['title','description']},news:{table:'news',title:'الأخبار التقنية',date:'published_at',search:['title','summary','content']},services:{table:'services',title:'الخدمات',date:'created_at',search:['name','description']}}[kind];
 const state={db:null,settings:{},page:1,count:0,term:'',sort:'newest',rows:[]};
