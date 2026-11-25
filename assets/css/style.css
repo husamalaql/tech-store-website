@@ -97,7 +97,7 @@
 .admin-toolbar input{min-height:44px;max-width:460px;border-radius:12px;background:#f8fafd}
 .admin-toolbar .btn{min-height:44px;border-radius:12px}
 .admin-table-wrap{overflow-x:auto;border:1px solid #e3eaf3;border-radius:15px;background:#fff}
-.admin-compact-table{min-width:0;table-layout:fixed}
+.admin-compact-table{min-width:560px;table-layout:fixed}
 .admin-compact-table th,.admin-compact-table td{padding:12px 18px}
 .admin-compact-table th:nth-child(1),.admin-compact-table td:nth-child(1){width:54%}
 .admin-compact-table th:nth-child(2),.admin-compact-table td:nth-child(2){width:24%}
@@ -167,4 +167,35 @@
  .admin-compact-table th,.admin-compact-table td{padding:8px 5px}
  .admin-row-image-wrap{width:42px;height:42px}
  .admin-compact-table .admin-name-cell{font-size:.75rem}
+}
+
+
+/* Final admin mobile sizing and horizontal table scrolling */
+.admin-body{width:100%;max-width:100%;overflow-x:hidden}
+.admin-shell,.admin-main,.admin-panel{min-width:0;max-width:100%}
+.admin-table-wrap{display:block;width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;touch-action:pan-x pan-y}
+.admin-compact-table{width:100%;min-width:560px;table-layout:fixed}
+.logout-icon-btn{display:grid!important;place-items:center;align-self:flex-start;width:42px;height:42px;min-width:42px;padding:0!important;border:1px solid #ffffff35!important;border-radius:12px!important;background:#ffffff12!important;color:#f4f8ff!important;cursor:pointer}
+.logout-icon-btn svg{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.logout-icon-btn:hover{background:#ffffff25!important}
+@media(max-width:720px){
+ .admin-sidebar{padding:10px 12px!important;gap:8px!important}
+ .admin-sidebar h2{font-size:.92rem!important;margin:0!important;padding:0 3px!important}
+ .admin-nav{width:100%;max-width:100%;gap:4px!important}
+ .admin-nav button{font-size:.76rem!important;padding:8px 10px!important}
+ .admin-main{padding:10px!important}
+ .admin-top{padding:12px 14px!important;margin-bottom:12px!important}
+ .admin-top h1{font-size:1.25rem!important}
+ .admin-panel{padding:11px!important;margin-bottom:12px!important}
+ .admin-toolbar{gap:7px!important;margin-bottom:10px!important}
+ .admin-toolbar input{font-size:.88rem!important;min-height:40px!important}
+ .admin-toolbar .btn{min-height:40px!important;font-size:.78rem!important}
+ .admin-table-wrap{border-radius:11px}
+ .admin-compact-table{min-width:560px!important}
+ .admin-compact-table th,.admin-compact-table td{padding:9px 10px!important;font-size:.78rem!important}
+ .admin-compact-table tbody tr{height:66px!important}
+ .admin-row-image-wrap{width:46px!important;height:46px!important}
+ .stat-grid{gap:8px!important}
+ .stat-card{padding:12px!important}
+ .stat-card strong{font-size:1.4rem!important}
 }
