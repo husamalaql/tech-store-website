@@ -199,3 +199,38 @@
  .stat-card{padding:12px!important}
  .stat-card strong{font-size:1.4rem!important}
 }
+
+
+/* Admin-only viewport containment: horizontal scrolling belongs to tables only */
+html:has(body.admin-body),body.admin-body{width:100%;max-width:100%;overflow-x:hidden}
+.admin-body,.admin-body *{box-sizing:border-box}
+.admin-shell{width:100%;max-width:100%;grid-template-columns:248px minmax(0,1fr);overflow-x:clip}
+.admin-main,.admin-content,.admin-panel{min-width:0;width:100%;max-width:100%}
+.admin-top>div,.admin-top #admin-email{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.admin-table-wrap{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.admin-table-wrap .admin-table{width:100%;min-width:580px}
+.admin-body dialog.item-dialog{box-sizing:border-box;width:min(760px,calc(100vw - 16px));max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px);margin:auto;padding:18px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.admin-body dialog.item-dialog>*{min-width:0;max-width:100%}
+.admin-body .admin-form{width:100%;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.admin-body .admin-form label{min-width:0;max-width:100%}
+.admin-body .admin-form input,.admin-body .admin-form textarea,.admin-body .admin-form select{box-sizing:border-box;min-width:0;max-width:100%}
+.admin-body .admin-image-editor{min-width:0;grid-template-columns:110px minmax(0,1fr)}
+.admin-body .admin-dialog-actions{min-width:0;max-width:100%;flex-wrap:wrap}
+@media(max-width:720px){
+ .admin-shell{grid-template-columns:minmax(0,1fr);overflow-x:clip}
+ .admin-main{width:100%;min-width:0;max-width:100%;padding:10px}
+ .admin-sidebar{width:100%;min-width:0;max-width:100%;height:auto;position:relative}
+ .admin-nav{display:flex;flex-wrap:wrap;overflow:visible;max-width:100%;min-width:0;gap:5px}
+ .admin-nav button{flex:1 1 auto;min-width:0;white-space:normal;text-align:center}
+ .admin-top{width:100%;min-width:0;max-width:100%;flex-wrap:wrap}
+ .admin-panel{width:100%;min-width:0;max-width:100%;padding:11px}
+ .admin-toolbar{width:100%;min-width:0;max-width:100%}
+ .admin-body dialog.item-dialog{width:calc(100vw - 16px);max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px);padding:14px;border-radius:15px}
+ .admin-body .admin-form{grid-template-columns:minmax(0,1fr);gap:11px}
+ .admin-body .admin-form .wide{grid-column:1}
+ .admin-body .admin-image-editor{grid-template-columns:78px minmax(0,1fr);gap:9px}
+ .admin-body .admin-current-image,.admin-body .admin-current-image-placeholder{width:78px;height:78px}
+ .admin-body .message-meta{grid-template-columns:minmax(0,1fr)}
+ .admin-body .admin-dialog-actions{display:grid;grid-template-columns:minmax(0,1fr)}
+ .admin-body .admin-dialog-actions>*{width:100%;min-width:0;max-width:100%;justify-content:center}
+}
