@@ -234,3 +234,12 @@ html:has(body.admin-body),body.admin-body{width:100%;max-width:100%;overflow-x:h
  .admin-body .admin-dialog-actions{display:grid;grid-template-columns:minmax(0,1fr)}
  .admin-body .admin-dialog-actions>*{width:100%;min-width:0;max-width:100%;justify-content:center}
 }
+
+
+/* Admin editor actions: keep save and delete side by side */
+.admin-editor-actions{display:flex!important;flex-direction:row!important;align-items:stretch;justify-content:flex-start;gap:10px;flex-wrap:nowrap}
+.admin-editor-actions>*{width:auto!important;min-width:0;flex:1 1 0;white-space:nowrap}
+@media(max-width:720px){
+ .admin-editor-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
+ .admin-editor-actions>*{width:100%!important;min-width:0;padding-inline:8px}
+}
