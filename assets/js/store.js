@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+const favLoader=document.createElement('script');favLoader.src='assets/js/favorites.js';document.head.appendChild(favLoader);
 const cfg=window.STORE_CONFIG||{};
 const $=s=>document.querySelector(s);
 const FAV_KEY='tech-store-favorites-v1';
