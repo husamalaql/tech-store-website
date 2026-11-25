@@ -63,3 +63,17 @@
 /* Compact top spacing for standalone catalog pages */
 .catalog-page{padding-top:26px}
 .catalog-page>.container>.section-head{margin-top:0}
+
+/* Homepage offers displayed as distinct boxed cards */
+.home-offer-list{display:grid;grid-template-columns:1fr;gap:12px}
+.home-offer-list .item-card{display:flex;flex-direction:column;min-width:0;padding:9px;border:1px solid #e3eaf3;border-radius:15px;background:#fff;box-shadow:0 4px 13px #16395d0c;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.home-offer-list .item-card:hover{transform:translateY(-2px);border-color:#c8dcf5;box-shadow:0 8px 20px #16395d16}
+.home-offer-list .card-media{height:142px;flex:0 0 142px;border-radius:10px;background:#f2f6fb;overflow:hidden}
+.home-offer-list .card-media .item-image{width:100%;height:100%;object-fit:cover}
+.home-offer-list .item-body{padding:10px 3px 3px;display:grid;gap:6px}
+.home-offer-list .item-body h3{margin:0;font-size:.9rem;line-height:1.5;color:#172d49}
+.home-offer-list .card-summary{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:#71839a;font-size:.73rem;line-height:1.55}
+.home-offer-list .price{display:block;color:#0865d8;font-size:.84rem}
+.home-offer-list .card-detail-btn{display:inline-flex;justify-content:center;align-items:center;min-height:34px;margin-top:3px;padding:6px 10px;border-radius:9px;font-size:.76rem}
+@media(max-width:700px){.home-offer-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.home-offer-list .item-card{padding:7px}.home-offer-list .card-media{height:125px;flex-basis:125px}.home-offer-list .item-body h3{font-size:.82rem}}
+@media(max-width:390px){.home-offer-list{grid-template-columns:1fr}.home-offer-list .item-card{display:grid;grid-template-columns:104px minmax(0,1fr);align-items:center;gap:9px}.home-offer-list .card-media{height:100px;flex-basis:100px}.home-offer-list .item-body{padding:2px}}
